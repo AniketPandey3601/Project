@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block covidactive %}active{% endblock covidactive %}
+{% block title %}covid{% endblock title %}
+{% block body %}
+
+{%for covid in covids %}
+
+
+      <h1><a href="/covid/{{covid.slug}}">{{covid.title}}</a> </h1>
+      <div>  {{covid.content}}</div>
+      <div>  <img src="" alt="no image" srcset="">{{covid.Image}}</div>
+      
+     
+<br>
+{% endfor %}
+
+{% endblock body %}
+    
