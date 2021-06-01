@@ -20,5 +20,7 @@ urlpatterns = [
      
      path('covid/<str:slug>',views.COVID19SOLUTIONS, name='COVID19SOLUTIONS'),
      path('media',views.MEDIA, name='MEDIA'),
-     path('career',views.CAREER, name='CAREER')
+     path('career',views.CAREER, name='CAREER'),
+     path('terms-conditions',views.Terms,name='Terms'),
+     path('policies',views.Policies,name='Policies')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

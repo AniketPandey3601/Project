@@ -6,7 +6,7 @@ from django.templatetags.static import static
 
 # Create your views here.
 def Home(request):
-    # return HttpResponse('this is home page')
+    
     return render(request,'Home.html')
 
 def AboutUS(request):
@@ -32,8 +32,9 @@ def PRODUCTSHOME(request):
     return render(request,'productshome.html',context)
 
 def PRODUCTS(request,slug):
-    
-    return HttpResponse(f"you are viewing {slug}")
+    product= Products.objects.filter(slug=slug).first()
+    context = {'product': product}
+    return  render(request,'Products.html',context)
 
     
 def COVID19SOLUTIONSHOME(request):
@@ -43,11 +44,19 @@ def COVID19SOLUTIONSHOME(request):
     return render(request,'covidhome.html',context)
     
 def COVID19SOLUTIONS(request,slug):
-   return HttpResponse(f"you are viewing {slug}")
+   covid= Covid_Solutions.objects.filter(slug=slug).first()
+   context = {'covid': covid}
+   return render(request ,'covid.html',context)
     
 def MEDIA(request):
     return render(request,'media.html')
     
 def CAREER(request):
     return render(request,'career.html')
-    
+
+def Terms(request):
+    return render(request,'terms-conditions.html')
+
+
+def Policies(request):
+    return render(request,'policy.html')
